@@ -79,15 +79,24 @@ public class a2Part1 {
 
         // TODO: Compute and print the test accuracy
         int[] testPredictions = nn.predict(instances_test);
-        int correct = 0;
-        for (int i = 0; i < testPredictions.length; i++) {
-            if (testPredictions[i] == integer_encoded[i]) {
-                correct++;
-            }
-        }
-        double accuracy = (double) correct / testPredictions.length;
+        int[] desired_outputs = label_encoder.intEncode(labels_test);
+
+        double accuracy = nn.calculateAccuracy(testPredictions, desired_outputs);
+
+        // int correct = 0;
+        // for (int i = 0; i < testPredictions.length; i++) {
+        //     if (testPredictions[i] == integer_encoded[i]) {
+        //         correct++;
+        //     }
+        // }
+        // double accuracy = (double) correct / testPredictions.length;
         System.out.println("Test accuracy: " + accuracy);
         System.out.println("Finished!");
+
+
+        System.out.println("Final weights");
+        System.out.println("Hidden layer weights:\n" + Arrays.deepToString(nn.hidden_layer_weights));
+        System.out.println("Output layer weights:\n" + Arrays.deepToString(nn.output_layer_weights));
     }
 }
 

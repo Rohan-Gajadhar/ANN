@@ -183,23 +183,20 @@ public class NeuralNetwork {
             }
 
             // Print weight updates after each epoch
-            /*
-            System.out.println("Updated Hidden layer weights:");
+            System.out.println("Hidden layer weights:");
             for (double[] row : hidden_layer_weights) {
                 System.out.println(Arrays.toString(row));
             }
             System.out.println();
-            System.out.println("Updated Output layer weights:");
+            System.out.println("Output layer weights:");
             for (double[] row : output_layer_weights) {
                 System.out.println(Arrays.toString(row));
             }
             System.out.println();
-            */
 
             // Print accuracy achieved over this epoch
             double acc = calculateAccuracy(predictions, desired_outputs);
-            System.out.println("Training accuracy = " + acc);
-    
+            System.out.println("Training accuracy = " + acc + "\n");
         }
     }
 

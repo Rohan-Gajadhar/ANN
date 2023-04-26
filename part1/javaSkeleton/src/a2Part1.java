@@ -51,15 +51,14 @@ public class a2Part1 {
         // Perform a single backpropagation pass using the first instance only
         double[][] singleInstance = new double[1][];
         singleInstance[0] = instances[0];
-
+        
         int[] singleInstanceInteger = new int[1];
         singleInstanceInteger[0] = integer_encoded[0];
 
         //Train for 1 epoch, on a single instance 
-        //nn.train(singleInstance, singleInstanceInteger, 1);
+        nn.train(singleInstance, singleInstanceInteger, 1);
 
         //Print weights after BP for first instance only
-        /*
         System.out.println("Weights after performing BP for first instance only:");
         System.out.println("Hidden layer weights:");
         for (double[] row : nn.hidden_layer_weights) {
@@ -70,12 +69,11 @@ public class a2Part1 {
         for (double[] row : nn.output_layer_weights) {
             System.out.println(Arrays.toString(row));
         }
-        */
-
+    
         // Train for 100 epochs, on all instances
         nn.train(instances, integer_encoded, 100);
 
-        System.out.println("\nAfter training:");
+        System.out.println("After training:");
         List<String[]> lines_test = Util.getLines("part1\\javaSkeleton\\penguins307-test.csv");
         String[] header_test = lines_test.remove(0);
         String[] labels_test = Util.getLabels(lines_test);
